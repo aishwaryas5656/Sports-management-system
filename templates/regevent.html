@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/t.css')}}">
+
+</head>
+
+<body>
+    <form method="POST">
+        <div class="container">
+            <div class="table-wrapper">
+                <div class="table-title">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <h2>Manage <b>Events</b></h2>
+                        </div>
+
+                    </div>
+                </div>
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+
+
+                            <th>Event id</th>
+                            <th>Event name</th>
+                            <th>Type</th>
+                            <th>Staff</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Duration</th>
+                            <td>student id</td>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in value %}
+                        <tr>
+                            <td>{{row.eventid}}</td>
+                            <td>{{ row.name }}</td>
+                            <td>{{ row.type }}</td>
+                            <td>{{ row.staffid }}</td>
+                            <td>{{ row.date }}</td>
+                            <td>{{ row.time }}</td>
+                            <td>{{ row.duration }}</td>
+                            <td>{{row.smail}}</td>
+                            <input type="hidden" name="staffid" value="{{row.staffid}}">
+                            <input type="hidden" name="eventid" value="{{row.eventid}}">
+
+
+                        </tr>
+                        {% endfor%}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        
+    </form>
+</body>
+
+</html>

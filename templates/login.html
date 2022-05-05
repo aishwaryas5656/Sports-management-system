@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>login</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/log.css')}}">
+    
+    
+      <!-- CSS only -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+      <!-- JavaScript Bundle with Popper -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  
+  <style>
+    body {
+            background-image: url('static/image/bg1.jpg');
+            background-size: cover;
+        }
+  </style>
+    </head>
+  <body>
+    <div class="center">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div class="alert alert-danger bg-danger text-white alert-dismissible fade show" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+          </div>
+        {% endif %}
+        {% endwith %}
+    <style>
+        h1 
+        {
+          color: rgb(50, 78, 27);
+        }
+        </style>
+        <h1>Login</h1>
+        
+    
+      <form action="{{ url_for('login') }}"  method="POST">
+        <div class="txt_field">
+          <input type="text" name="id" required>
+          
+          <span></span>
+          <label>Username</label>
+        </div>
+        <div class="txt_field">
+          <input type="password" name="password" required>
+          <span></span>
+          <label>Password</label>
+        </div>
+	<div class="radio-btn">
+   
+	  <input type="radio" name="radio" id="option" value="admin" required> Admin</input>
+	  &emsp;
+	  &emsp;
+	  <input type="radio"name="radio" id="option"  value="staff" required> Staff</input>
+	  &emsp;
+	  &emsp;
+	  <input type="radio" name="radio" id="option"  value="student" required> Student</input>
+	</div>
+	<br>
+       <a href="{{ url_for('forgotpassword') }}" style="color:rgb(216, 164, 22)">Forgot Password ?</a><br><br>
+        <input type="submit" value="Login">
+        <div class="signup_link">
+          Not a member? <a href="{{ url_for('register') }}">Register</a>
+        </div>
+      </form>
+    </div>
+
+  </body>
+</html>

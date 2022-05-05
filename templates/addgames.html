@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Registration Form | CodingLab </title>--->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/p.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script type="text/javascript">
+        function a(event) {
+            var ch = event.which;
+            if (ch > 31 && ch != 32 && (ch < 65 || ch > 90) && (ch < 97 || ch > 122)) {
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Add games</div>
+        <div class="content">
+            <form action="/addgames" method="POST">
+                <div class="user-details">
+
+                    <div class="input-box">
+                        <span class="details">games</span>
+                        <input type="text" autocomplete="off" name="games"  required onkeypress="return a(event);">
+                    </div><br>
+                    <div class="input-box">
+                        <span class="details">rules</span>
+                        <input type="text" autocomplete="off" name="rules" required>
+                    </div><br>
+                    
+                    <div class="input-box">
+                        <span class="details">duration</span>
+                        <input type="time" name="duration" autocomplete="off" required>
+                    </div>
+                     
+                    <div class="input-box">
+                        <span class="details">number of equipments</span>
+                        <input type="number" name="equipments" autocomplete="off" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span class="details">singles</span>
+                        <SELECT name="singles">
+                            <option name="singles" value="yes">YES</option>
+                            <option name="singles" value="no">NO</option>
+                           
+                        </SELECT>
+                    </div><br>
+                    <div class="input-box">
+                        <span class="details">doubles</span>
+                        <SELECT name="doubles">
+                            <option name="doubles" value="yes">YES</option>
+                            <option name="doubles" value="no">NO</option>
+                           
+                        </SELECT>
+                    </div><br>
+                </div>
+
+                <div class="button">
+                    <input type="submit" value="Add">
+                </div>
+
+        </div>
+    </div>
+
+    </form>
+    </div>
+    </div>
+
+</body>
+
+</html>

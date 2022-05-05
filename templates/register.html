@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Register-sports event Management</title>
+     
+      
+      <link rel="stylesheet" href="style.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="{{url_for('static',filename='css/reg.css')}}">
+     
+     
+    </head>
+   <body>
+       <div class="center">
+      <div class="wrapper">
+         <div class="title-text">
+            <style>
+              
+            body {
+                  background-image: url('static/image/register.jpg');
+                  background-size: cover;
+                  }
+                 
+            
+               </style> 
+            
+               <h1>Register</h1>
+               
+            <div class="title login"> 
+            </div>
+            <div class="title signup">   
+            </div>
+         </div>
+         <div  class="form-container">
+           
+            <div class="slide-controls">
+               <input type="radio" name="slide" id="login" checked>
+               <input type="radio" name="slide" id="signup">
+               <label for="login" class="slide login">student</label>
+               <label for="signup" class="slide signup">staff</label>
+               <div class="slider-tab"></div>
+            </div>
+            <div class="form-inner">
+               <form action="/studregister" method="POST" class="login">
+                  {% if msg: %}
+                  {{msg}}
+                  {% endif %}
+                  <div class="row">
+                     <div class="col-md-4 offset-md-4">
+                         
+                     </div>
+                   </div>
+                <div class="field">
+                    <input type="text" name="name" autocomplete="off"  placeholder="Name" required>
+                 </div>
+                 <div class="field">
+                    <input type="text" name="rollno" autocomplete="off" placeholder="Rollno" required>
+                 </div>
+                  <div class="field">
+                     <input type="email" name="email" autocomplete="off" placeholder="Email" required>
+                  </div>
+                  <div class="field">
+                     <input type="password" name="password" autocomplete="off" placeholder="Password" required>
+                  </div>
+                  
+                  <div class="field btn">
+                     <div class="btn-layer"></div>
+                     <input type="submit" value="Register">
+                  </div>
+                  
+               </form>
+               <form action="/staffregister" method="POST" class="signup">
+                  {% if msg: %}
+                  {{msg}}
+                  {% endif %}
+                  <div class="field">
+                     <input type="text" name="name" autocomplete="off" placeholder="Name" required>
+                  </div>
+                  <div class="field">
+                    <input type="text" name="staffid" autocomplete="off" placeholder="Staffid" required>
+                 </div>
+                  <div class="field">
+                    <input type="email" name="email" autocomplete="off" placeholder="Email" required>
+                 </div>
+                  <div class="field">
+                     <input type="password" name="password" autocomplete="off" placeholder="Password" required>
+                  </div>
+                  <div class="field btn">
+                     <div class="btn-layer"></div>
+                     <input type="submit" value="Register">
+                     
+                  </div>
+                  
+               </form>
+            </div>
+         </div>
+      </div>
+      <script>
+         const loginText = document.querySelector(".title-text .login");
+         const loginForm = document.querySelector("form.login");
+         const loginBtn = document.querySelector("label.login");
+         const signupBtn = document.querySelector("label.signup");
+         const signupLink = document.querySelector("form .signup-link a");
+         signupBtn.onclick = (()=>{
+           loginForm.style.marginLeft = "-50%";
+           loginText.style.marginLeft = "-50%";
+         });
+         loginBtn.onclick = (()=>{
+           loginForm.style.marginLeft = "0%";
+           loginText.style.marginLeft = "0%";
+         });
+         signupLink.onclick = (()=>{
+           signupBtn.click();
+           return false;
+         });
+      </script>
+      </div>
+     
+   </body>
+
+</html>

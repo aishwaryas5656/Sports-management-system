@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Registration Form | CodingLab </title>--->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/p.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Add special result</div>
+        <div class="content">
+            <form action="/addsresult" method="POST">
+                <div class="user-details">
+
+                    <div class="input-box">
+                        <span class="details">event name</span>
+                        <input type="text" name="name" autocomplete="off" required>
+                    </div><br>
+                    <div class="input-box">
+                        <span class="details">student name</span>
+                        <input type="text" autocomplete="off" name="student" required>
+                    </div><br>
+                    <div class="input-box">
+                        <span class="details">place secured</span>
+                        <input type="text" autocomplete="off" name="place" required>
+                    </div><br>
+                    
+                   
+                </div>
+
+                <div class="button">
+                    <input type="submit" value="Add">
+                </div>
+
+        </div>
+    </div>
+
+    </form>
+    </div>
+    </div>
+
+</body>
+
+</html>

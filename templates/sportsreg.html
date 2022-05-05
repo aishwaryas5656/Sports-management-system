@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+    <title>Sports registraion-sports event Management</title>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Registration Form | CodingLab </title>--->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/p.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">register for sportsday event</div>
+        <div class="content">
+            <form action="/sportsregister/<sports_eventid>/<rollno>/" method="POST">
+                <div class="user-details">
+
+                   
+                    <div class="input-box">
+                        <span class="details">game name</span>
+                        <input type="text" name="sports_eventid" autocomplete="off" value="{{ value.sports_eventid}}" required>
+                    </div><br>
+                    <div class="input-box">
+                        <span class="details">rollno</span>
+                        <input type="text" value="{{mvalue.rollno}}" autocomplete="off" name="rollno" required>
+                    </div><br>
+                    <div class="input-box">
+                        <span class="details">team memebers</span>
+                        <input type="number" name="r1" value="r1">
+                        <input type="number" name="r2"value="r2">
+                        <input type="number" name="r3" value="r3">
+                    </div><br>
+                    
+                    
+                        <input type="hidden" name="sports_eventid" value="{{value.sports_eventid}}">
+                        <input type="hidden" name="linejudge" value="{{value.linejudge}}">
+                        <input type="hidden" name="scorejudge" value="{{value.scorejudge}}">
+                   
+                   
+                    
+                <div class="button">
+                    <input type="submit" value="register">
+                </div>
+               
+
+        </div>
+    </div>
+
+    </form>
+    </div>
+    </div>
+
+</body>
+
+</html>

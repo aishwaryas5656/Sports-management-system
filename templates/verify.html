@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Verify-sports event Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/l.css')}}">
+
+</head>
+
+<body>
+    <form action="/validate/{{se}}/{{otp}}" method="POST">
+        
+        <div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+            
+            <div class="card card0 border-0">
+                <div class="row d-flex">
+                    <div class="col-lg-4">
+                        <div class="card1 pb-5">
+                            <div class="row"> <img src=""></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                      
+                        <div class="card2 card border-0 px-4 py-5">
+                            <div class="row mb-4 px-3">
+                                <h6 class="mb-0 mr-4 mt-2"></h6>
+                                <div class="row px-3"> <label class="mb-1">
+                            <h6 class="mb-0 text-sm"> <h4> OTP has been sent to the email id. Please check the email for the confirmation.</h4><br>
+                                Enter OTP(One-time password):</h6>
+                        </label> <input class="mb-4" type="number" name="otp" required>
+                                </div>
+
+                            </div>
+                            <br>
+                            <div class="row mb-3 px-3"> <button type="submit" class="btn btn-blue text-center">validate</button> </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+        </script>
+    </form>
+</body>
+
+</html>

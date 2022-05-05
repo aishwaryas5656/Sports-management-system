@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>stud panel-sports event Management</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+    <style>
+        .banner-image {
+            background-image: url('static/image/ad.jpg');
+            background-size: "cover";
+        }
+    </style>
+</head>
+<body>
+    <form method="POST">
+
+        <!-- Navbar  -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
+            <div class="container">
+                {% with messages = get_flashed_messages() %}
+                 {% if messages %}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        {% for message in messages %}
+                        {{ message }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                {% endwith %}
+                <a class="navbar-brand" href="#">Student Panel</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="mx-auto"></div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/viewregular/{{session['rollno']}}">View regular games</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/viewspecial/{{session['rollno']}}">View special event</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/viewsports/{{session['rollno']}}">View sports event</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="/studresult">Result</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="logout">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+
+        <!-- Banner Image  -->
+        <div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
+
+        </div>
+
+
+        <script src="{{url_for('static',filename='js/bootstrap.bundle.min.js')}}"></script>
+        <script type="text/javascript">
+            var nav = document.querySelector('nav');
+
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 100) {
+                    nav.classList.add('bg-dark', 'shadow');
+                } else {
+                    nav.classList.remove('bg-dark', 'shadow');
+                }
+            });
+        </script>
+    </form>
+</body>
+
+</html>

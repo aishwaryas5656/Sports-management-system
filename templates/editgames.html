@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Registration Form | CodingLab </title>--->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/p.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    
+    <div class="container">
+       
+        <div class="title">Edit game</div>
+        
+            <div class="content">
+                <form action="/update/<gameid>/" method="POST">
+                <div class="user-details">
+
+                    <div class="input-box">
+                        <span class="details">game  name</span>
+                        <input type="text" name="games" autocomplete="off" value="{{ value.gamesname}}" readonly>
+                    </div><br>
+                    
+                    <div class="input-box">
+                        <span class="details">rules</span>
+                        <input type="text" value="{{value.rules}}" autocomplete="off" name="rules" required>
+                    </div><br>
+                    <div class="input-box">
+                        <span class="details">duration</span>
+                        <input type="text" value="{{value.duration}}" autocomplete="off" name="duration" required>
+                    </div><br>
+                    <div class="input-box">
+                        <span class="details">equipments</span>
+                        <input type="number" value="{{value.equipments}}" autocomplete="off" name="equipments" required>
+                    </div><br>
+                    <div class="input-box">
+                        <span class="details">singles</span>
+                        <input type="text" value="{{value.singles}}" autocomplete="off" name="singles" readonly>
+                    </div><br>
+                    <div class="input-box">
+                        <span class="details">doubles</span>
+                        <input type="text" value="{{value.doubles}}" autocomplete="off" name="doubles" readonly>
+                    </div><br>
+                    <div class="input-box">
+                        <input type="hidden" name="gameid" value="{{value.gameid}}">
+                    </div>
+                </div>
+
+                <div class="button">
+                    <input type="submit" value="update">
+                </div>
+
+        </div>
+    </div>
+
+    </form>
+    </div>
+    </div>
+
+</body>
+
+</html>

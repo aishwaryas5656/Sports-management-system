@@ -1,0 +1,95 @@
+ <!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+    <title>Slot Book-sports event Management</title>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Registration Form | CodingLab </title>--->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/p.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">slot booking</div>
+        {% if msg: %}
+            {{msg}}
+        {% endif %}
+        <div class="content">
+            <form action="{{ url_for('sgregister') }}" method="POST">
+                <div class="user-details">
+
+                   
+                    <div class="input-box">
+                        <span class="details">game id</span>
+                        <input type="text" name="gameid" autocomplete="off" value="{{ value.gameid}}" readonly>
+                    </div><br>
+                    <div class="input-box">
+                        <span class="details">rollno</span>
+                        <input type="text" value="{{mvalue.rollno}}" autocomplete="off" name="rollno" readonly>
+                    </div><br>
+                  
+                    <div class="input-box">
+                        <span class="details">doubles</span>
+                        <input type="text" value="{{value.doubles}}" autocomplete="off" name="doubles" readonly>
+                    </div><br>
+                    
+
+                    <div class="input-box">
+                        <span class="details">team memebers</span>
+                        <select name="r1">
+                            <option>SELECT</option>
+                            {%  if students: %}
+                            {% for stud in students: %}
+                            <option value="{{stud.rollno}}">{{stud.rollno}} - {{stud.name}}</option>
+                            {% endfor %}
+                            {% else: %}
+                            <option>No Students Found</option>
+                            {% endif %}
+                        </select>
+                        <select name="r2">
+                            <option>SELECT</option>
+                            {%  if students: %}
+                            {% for stud in students: %}
+                            <option value="{{stud.rollno}}">{{stud.rollno}} - {{stud.name}}</option>
+                            {% endfor %}
+                            {% else: %}
+                            <option>No Students Found</option>
+                            {% endif %}
+                        </select>
+                        <select name="r3">
+                            <option>SELECT</option>
+                            {%  if students: %}
+                            {% for stud in students: %}
+                            <option value="{{stud.rollno}}">{{stud.rollno}} - {{stud.name}}</option>
+                            {% endfor %}
+                            {% else: %}
+                            <option>No Students Found</option>
+                            {% endif %}
+                        </select>
+                        <!-- <input type="number" name="r1" value="r1">
+                        <input type="number" name="r2" value="r2">
+                        <input type="number" name="r3" value="r3"> -->
+                    </div><br>
+
+                    
+                    <div class="input-box">
+                        <input type="hidden" name="gameid" value="{{value.gameid}}">
+                    </div>
+                   
+                    
+                <div class="button">
+                    <input type="submit" value="register">
+                </div>
+
+        </div>
+    </div>
+
+    </form>
+    </div>
+    </div>
+
+</body>
+
+</html>

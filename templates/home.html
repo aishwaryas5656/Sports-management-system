@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+    <style>
+        body {
+            background-image: url('static/image/bg1.jpg');
+            background-size: cover;
+        }
+    </style>
+</head>
+
+
+<body>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container">
+      <b><a class="navbar-brand">Sports Event Management</a></b>
+      <div class="d-flex">
+        <a href="{{ url_for('login') }}" class="btn btn-success">Login</a>
+      </div>
+    </div>
+  </nav>
+  
+
+    <!-- Banner Image  -->
+    <div class="banner-image w-100 vh-100 d-flex justify-content-left align-items-center text-white">
+        <div class="container">
+          <i><h1>Welcome,</h1></i>
+            <b><p>Sports Event Management System</p></b><br>
+            <a href="{{ url_for('register') }}" class="btn btn-primary">Get Started</a>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white align-items-center d-flex justify-content-center p-3">
+        Copyright 2021 | Sports Event Management System
+    </footer>
+  
+    
+    <script src="{{url_for('static',filename='js/bootstrap.bundle.min.js')}}"></script>
+    <script type="text/javascript">
+        var nav = document.querySelector('nav');
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 100) {
+                nav.classList.add('bg-dark', 'shadow');
+            } else {
+                nav.classList.remove('bg-dark', 'shadow');
+            }
+        });
+    </script>
+</body>
+
+</html>

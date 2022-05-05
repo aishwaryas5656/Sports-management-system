@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Update games-sports event Management</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/t.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script> 
+   
+</head>
+
+<body>
+  <form method="POST">
+      <div class="container">
+          <div class="table-wrapper">
+              <div class="table-title">
+                  <div class="row">
+                      <div class="col-sm-4">
+                          <h2>Manage <b>Events</b></h2>
+                      </div>
+
+                  </div>
+              </div>
+              <table class="table table-striped table-hover">
+                <thead>
+                  <tr>
+                   <th><h4><b>gameid</b></h4></th>
+                   <th><h4><b>game name</b></h4></th>
+                  
+                   <th><h4><b>rules</b></h4></th>
+                   <th><h4><b>Duration</b></h4></th>
+                   <th><h4><b>equipments</b></h4></th>
+                   <th><h4><b>singles</b></h4></th>
+                   <th><h4><b>doubles</b></h4></th>
+                   <th><h4><b>Actions</b></h4></th>
+                </tr>
+              </thead>
+            <tbody>
+            {% for row in data %}
+            <tr>
+    
+                <td><h4>{{row.gameid}}</h4></td>
+                <td><h4>{{ row.gamesname }}</h4></td>
+                <td><h4>{{ row.rules }}</h4></td>
+                <td><h4>{{ row.duration }}</h4></td>
+                <td><h4>{{ row.equipments }}</h4></td>
+                <td><h4>{{ row.singles }}</h4></td>
+                <td><h4>{{ row.doubles }}</h4></td>
+            
+              <td>
+                <a href="/edit/{{row.gameid}}" class="edit" data-targ="modal{{row.gameid}}"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                <a href="/deleteevent/{{row.gameid}}" class="delete" data-targ="modal{{row.gameid}}"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                               
+              </td>
+            </tr>
+            {% endfor%}
+            </tbody>
+                      
+            </table>
+                
+            </div>
+        </div>
+        <a href="/back" class="btn btn-success" data-toggle="modal"> <span><h4>back</h4></span></a>
+        
+    </form>
+    <div class="container d-flex justify-content-center">
+      <div class="">
+        {% with messages = get_flashed_messages() %} 
+         {% if messages %}  
+  
+          {% for message in messages %}  
+
+          <div class="container alert alert-success d-flex align-items-center " role="alert">
+           <svg class="bi flex-shrink-0 me-2" width="50" height="30" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+           <div>
+               {{ message }}
+           </div>
+           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+         </div>
+          {% endfor %}  
+  
+       
+    {% endif %}  
+ {% endwith %} 
+  </div>
+</div>   
+</body>
+
+</html>

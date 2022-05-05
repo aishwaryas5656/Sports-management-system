@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>View sports event for student</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/t.css')}}">
+
+</head>
+
+<body>
+    <form method="POST">
+        <div class="container">
+            <div class="table-wrapper">
+                <div class="table-title">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <h2><b><h5>View Students</h5></b></h2>
+                        </div>
+
+                    </div>
+                </div>
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+
+
+                            <th><b><h4>Games</h4></b></th>
+                            <th><b><h4>Rollno</h4></b></th>
+                            <th><b><h4>Teammember1</h4></b></th>
+                            <th><b><h4>Teammember2</h4></b></th>
+                            <th><b><h4>Teammember3</h4></b></th>
+                            <th><b><h4>Staff coordinate</h4></b></th>
+                            <th><b><h4>Supportive coordinate</h4></b></th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in data %}
+                        <tr>
+
+                            <td><h4>{{row.sportsname}}</h4></td>
+                            <td><h4>{{row.rollno}}</h4></td>
+                            <td><h4>{{row.teammember1}}</h4></td>
+                            <td><h4>{{row.teammember2}}</h4></td>
+                            <td><h4>{{row.teammember3}}</h4></td>
+                            <td><h4>{{row.linejudge}}</h4></td>
+                            <td><h4>{{row.scorejudge}}</h4></td>
+                        </tr>
+                        {% endfor%}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        
+    </form>
+</body>
+
+</html>

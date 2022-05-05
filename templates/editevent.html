@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Registration Form | CodingLab </title>--->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/p.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Edit event</div>
+        <div class="content">
+            <form action="/updatee/<eventid>/" method="POST">
+                <div class="user-details">
+
+                    <div class="input-box">
+                        <span class="details">event name</span>
+                        <input type="text" name="name" autocomplete="off" value="{{ value.specialname}}" readonly>
+                    </div><br>
+                    <!-- <div class="input-box">
+                        <span class="details">game name</span>
+                        <input type="text" name="gamename" autocomplete="off" value="{{ value.gameid}}" readonly>
+                    </div><br> -->
+                    <div class="input-box">
+                        <span class="details">venue</span>
+                        <input type="text" value="{{value.venue}}" autocomplete="off" name="venue" required>
+                    </div><br>
+                    <div class="input-box">
+                        <span class="details">type</span>
+                        <input type="text" value="{{value.type}}" autocomplete="off" name="type" readonly>
+                    </div><br>
+                    <div class="input-box">
+                        <span class="details">rules</span>
+                        <input type="text" value="{{value.specialeventrules}}" autocomplete="off" name="rules" required>
+                    </div><br>
+                    <div class="input-box">
+                        <span class="details">staff</span>
+                        <input type="text" value="{{value.staffid}}" autocomplete="off" name="staff" readonly>
+                    </div><br>
+                    <div class="input-box">
+                        <span class="details">start date</span>
+                        <input type="date" name="startdate" autocomplete="off" value="{{ value.startdate }}" required>
+                    </div><br>
+                    <div class="input-box">
+                        <span class="details">end date</span>
+                        <input type="date" name="enddate" autocomplete="off" value="{{ value.enddate }}" required>
+                    </div><br>
+                    <div class="input-box">
+                        <span class="details">time</span>
+                        <input type="time" name="time" value="{{ value.starttime }}" min="06:00" max="18:00" required>
+                    </div><br>
+                   
+                    <div class="input-box">
+                        <input type="hidden" name="eventid" value="{{value.eventid}}">
+                    </div>
+                </div>
+
+                <div class="button">
+                    <input type="submit" value="update">
+                </div>
+
+        </div>
+    </div>
+
+    </form>
+    </div>
+    </div>
+
+</body>
+
+</html>
